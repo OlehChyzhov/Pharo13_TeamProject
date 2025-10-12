@@ -27,7 +27,14 @@ ManifestTeamProjectFruitTree class >> ruleAssignmentInIfTrueRuleV1FalsePositive 
 ManifestTeamProjectFruitTree class >> ruleClassNotReferencedRuleV1FalsePositive [
 
 	<ignoreForCoverage>
-	^ #(#(#(#RGClassDefinition #(#AppleTree)) #'2025-10-11T16:32:26.667+03:00') #(#(#RGClassDefinition #(#ApricotTree)) #'2025-10-11T18:14:12.021+03:00') )
+	^ #(#(#(#RGClassDefinition #(#AppleTree)) #'2025-10-11T16:32:26.667+03:00') #(#(#RGClassDefinition #(#ApricotTree)) #'2025-10-11T18:14:12.021+03:00') #(#(#RGClassDefinition #(#TreeContainer)) #'2025-10-12T09:51:30.169+03:00') )
+]
+
+{ #category : 'code-critics' }
+ManifestTeamProjectFruitTree class >> ruleCodeCruftLeftInMethodsRuleV1FalsePositive [
+
+	<ignoreForCoverage>
+	^ #(#(#(#RGMethodDefinition #(#TreeContainer #printAll #false)) #'2025-10-12T10:01:29.39+03:00') )
 ]
 
 { #category : 'code-critics' }
@@ -66,17 +73,24 @@ ManifestTeamProjectFruitTree class >> ruleMissingSuperSendsRuleV1FalsePositive [
 ]
 
 { #category : 'code-critics' }
+ManifestTeamProjectFruitTree class >> ruleNoUnusedInstanceVariableRuleV1FalsePositive [
+
+	<ignoreForCoverage>
+	^ #(#(#(#RGClassDefinition #(#TreeContainer)) #'2025-10-12T09:51:32.985+03:00') )
+]
+
+{ #category : 'code-critics' }
 ManifestTeamProjectFruitTree class >> ruleReAssertWithBooleanEqualtiyRuleV1FalsePositive [
 
 	<ignoreForCoverage>
-	^ #(#(#(#RGMethodDefinition #(#ApricotTreeTests #testTreeInitialize #false)) #'2025-10-11T18:22:52.813+03:00') #(#(#RGMethodDefinition #(#ApricotTreeTests #testTreeInitializeWith #false)) #'2025-10-11T18:24:41.455+03:00') )
+	^ #(#(#(#RGMethodDefinition #(#ApricotTreeTests #testTreeInitialize #false)) #'2025-10-11T18:22:52.813+03:00') #(#(#RGMethodDefinition #(#ApricotTreeTests #testTreeInitializeWith #false)) #'2025-10-11T18:24:41.455+03:00') #(#(#RGMethodDefinition #(#TreeContainerTest #testAllReachedBearingAge #false)) #'2025-10-12T13:45:01.472+03:00') )
 ]
 
 { #category : 'code-critics' }
 ManifestTeamProjectFruitTree class >> ruleReClassNotCategorizedRuleV1FalsePositive [
 
 	<ignoreForCoverage>
-	^ #(#(#(#RGClassDefinition #(#AppleTree)) #'2025-10-11T16:32:49.89+03:00') #(#(#RGClassDefinition #(#AppleTreeTests)) #'2025-10-11T16:54:29.301+03:00') #(#(#RGClassDefinition #(#ApricotTree)) #'2025-10-11T18:14:09.755+03:00') )
+	^ #(#(#(#RGClassDefinition #(#AppleTree)) #'2025-10-11T16:32:49.89+03:00') #(#(#RGClassDefinition #(#AppleTreeTests)) #'2025-10-11T16:54:29.301+03:00') #(#(#RGClassDefinition #(#ApricotTree)) #'2025-10-11T18:14:09.755+03:00') #(#(#RGClassDefinition #(#TreeContainer)) #'2025-10-12T09:51:21.678+03:00') )
 ]
 
 { #category : 'code-critics' }
@@ -90,7 +104,7 @@ ManifestTeamProjectFruitTree class >> ruleReGuardClauseRuleV1FalsePositive [
 ManifestTeamProjectFruitTree class >> ruleReIvarNeitherReadNorWrittenRuleV1FalsePositive [
 
 	<ignoreForCoverage>
-	^ #(#(#(#RGClassDefinition #(#ApricotTree)) #'2025-10-11T18:14:07.602+03:00') )
+	^ #(#(#(#RGClassDefinition #(#ApricotTree)) #'2025-10-11T18:14:07.602+03:00') #(#(#RGClassDefinition #(#TreeContainer)) #'2025-10-12T09:51:26.549+03:00') )
 ]
 
 { #category : 'code-critics' }
@@ -119,4 +133,11 @@ ManifestTeamProjectFruitTree class >> ruleReTestClassNotInPackageWithTestEndingN
 
 	<ignoreForCoverage>
 	^ #(#(#(#RGClassDefinition #(#AppleTreeTests)) #'2025-10-11T16:54:37.482+03:00') )
+]
+
+{ #category : 'code-critics' }
+ManifestTeamProjectFruitTree class >> ruleTempsReadBeforeWrittenRuleV1FalsePositive [
+
+	<ignoreForCoverage>
+	^ #(#(#(#RGMethodDefinition #(#TreeContainer #addTreeFromUser #false)) #'2025-10-12T10:09:32.277+03:00') )
 ]
