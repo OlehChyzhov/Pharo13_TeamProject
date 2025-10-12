@@ -1,6 +1,10 @@
 "
-Apple Tree
-Subclass of the Fruit Tree
+AppleTree represents a specific type of FruitTree that produces apples.
+
+It extends the base FruitTree class by adding:
+- fruitColor : a String describing the color of the apples (e.g., 'Red', 'Green').
+- lastFruitedYear : an Integer indicating the most recent year the tree produced fruit
+
 "
 Class {
 	#name : 'AppleTree',
@@ -42,6 +46,15 @@ AppleTree >> fruitColor: anObject [
 
 { #category : 'methods' }
 AppleTree >> growOneYear [
+	"Simulate the growth of the apple tree over one year.
+	
+	Increases:
+	- age by 1 year
+	- height by 0.3 meters
+
+	If the tree is old enough to bear fruit and its age is even,
+	it produces additional yield (+5) and updates lastFruitedYear"
+
     age := age + 1.
     height := height + 0.3.
     (self age >= self fruitBearingAge and: [(self age \\ 2) == 0]) ifTrue: [

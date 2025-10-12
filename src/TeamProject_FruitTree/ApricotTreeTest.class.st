@@ -1,12 +1,12 @@
 Class {
-	#name : 'ApricotTreeTests',
+	#name : 'ApricotTreeTest',
 	#superclass : 'TestCase',
 	#category : 'TeamProject_FruitTree',
 	#package : 'TeamProject_FruitTree'
 }
 
 { #category : 'tests' }
-ApricotTreeTests >> testGrowOneYear [
+ApricotTreeTest >> testGrowOneYear [
 	| tree |
 	tree := ApricotTree
 	initializeWith: 'Test Tree'
@@ -28,14 +28,14 @@ ApricotTreeTests >> testGrowOneYear [
 ]
 
 { #category : 'tests' }
-ApricotTreeTests >> testTreeInitialize [
+ApricotTreeTest >> testTreeInitialize [
 	| tree |
 	tree := ApricotTree new.
 	self assert: tree hadFrost equals: false.
 ]
 
 { #category : 'tests' }
-ApricotTreeTests >> testTreeInitializeWith [
+ApricotTreeTest >> testTreeInitializeWith [
 	| tree |
 	tree := ApricotTree initializeWith: 'Test Tree' age: 1 height: 2 yield: 0 bearingAge: 2 hadFrost: true.
 	self assert: tree speciesName equals: 'Test Tree'.

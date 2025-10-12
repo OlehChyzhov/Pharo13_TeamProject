@@ -1,5 +1,10 @@
 "
-Container (Custom Wrapper) for all trees
+TreeContainer serves as a collection manager for FruitTree objects.
+
+It stores all trees in the orchard within the 'memory' collection
+and provides methods for the trees
+(e.g., finding the most productive or shortest ones).
+
 "
 Class {
 	#name : 'TreeContainer',

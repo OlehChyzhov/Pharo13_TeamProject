@@ -1,12 +1,12 @@
 Class {
-	#name : 'FruitTreeTests',
+	#name : 'FruitTreeTest',
 	#superclass : 'TestCase',
 	#category : 'TeamProject_FruitTree',
 	#package : 'TeamProject_FruitTree'
 }
 
 { #category : 'methods' }
-FruitTreeTests >> testGrowOneYear [
+FruitTreeTest >> testGrowOneYear [
 	| tree |
 	tree := FruitTree initializeWith: 'Test Tree' age: 1 height: 1 yield: 0 bearingAge: 2.
 	tree growOneYear.
@@ -16,7 +16,7 @@ FruitTreeTests >> testGrowOneYear [
 ]
 
 { #category : 'methods' }
-FruitTreeTests >> testGrowYears [
+FruitTreeTest >> testGrowYears [
     | tree |
     tree := FruitTree initializeWith: 'Test Tree' age: 1 height: 1 yield: 0 bearingAge: 2.
     tree growYears: 3.
@@ -27,7 +27,7 @@ FruitTreeTests >> testGrowYears [
 ]
 
 { #category : 'initialization' }
-FruitTreeTests >> testTreeInitialize [
+FruitTreeTest >> testTreeInitialize [
 	| tree |
 	tree := FruitTree new.
 	self assert: tree age equals: 0.
@@ -36,7 +36,7 @@ FruitTreeTests >> testTreeInitialize [
 ]
 
 { #category : 'tests' }
-FruitTreeTests >> testTreeInitializeWith [
+FruitTreeTest >> testTreeInitializeWith [
 	| tree |
 	tree := FruitTree initializeWith: 'Test Tree' age: 2 height: 1.2 yield: 0 bearingAge: 3.
 	self assert: tree speciesName equals: 'Test Tree'.

@@ -1,12 +1,12 @@
 Class {
-	#name : 'AppleTreeTests',
+	#name : 'AppleTreeTest',
 	#superclass : 'TestCase',
 	#category : 'TeamProject_FruitTree',
 	#package : 'TeamProject_FruitTree'
 }
 
 { #category : 'tests' }
-AppleTreeTests >> testGrowOneYear [
+AppleTreeTest >> testGrowOneYear [
     | tree |
     tree := AppleTree initializeWith: 'Tree' age: 1 height: 2 yield: 0 bearingAge: 2 fruitColor: 'Red'.
 
@@ -27,7 +27,7 @@ AppleTreeTests >> testGrowOneYear [
 ]
 
 { #category : 'tests' }
-AppleTreeTests >> testTreeInitialize [
+AppleTreeTest >> testTreeInitialize [
 	| tree |
 	tree := AppleTree new.
 	self assert: tree fruitColor equals: 'Undefined'.
@@ -35,7 +35,7 @@ AppleTreeTests >> testTreeInitialize [
 ]
 
 { #category : 'tests' }
-AppleTreeTests >> testTreeInitializeWith [
+AppleTreeTest >> testTreeInitializeWith [
 	| tree |
 	tree := AppleTree initializeWith: 'Test Tree' age: 1 height: 2 yield: 0 bearingAge: 2 fruitColor: 'Red'.
 	self assert: tree speciesName equals: 'Test Tree'.

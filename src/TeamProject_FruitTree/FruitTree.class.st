@@ -1,6 +1,16 @@
 "
-Fruit Tree
-This is an objec that represents fruit tree
+FruitTree is the abstract base class for all types of fruit-bearing trees in the orchard system.
+It defines common properties that every fruit tree shares, including:
+
+- speciesName : a String representing the type or name of the tree.
+- age : an Integer representing the current age of the tree in years.
+- height : a Number representing the tree's height in meters.
+- yield : an Integer representing the amount of fruit the tree produces per season.
+- fruitBearingAge : an Integer indicating the age at which the tree starts producing fruit.
+
+Subclasses like AppleTree, ApricotTree inherit from FruitTree
+and may add specific attributes.
+
 "
 Class {
 	#name : 'FruitTree',
@@ -18,6 +28,7 @@ Class {
 
 { #category : 'initialization' }
 FruitTree class >> initializeWith: aSpeciesName age: anAge height: aHeight yield: aYield bearingAge: bearingAgeValue [
+	"Create and return a new FruitTree initialized with the given values."
 	| tree |
 	tree := self new.
 	tree speciesName: aSpeciesName.
@@ -99,7 +110,7 @@ FruitTree >> height: aHeight [
 
 { #category : 'initialization' }
 FruitTree >> initialize [
-	"Called automatically after a new object is created with 'new'"
+	"Initialize default values for a new FruitTree instance."
 	super initialize.
 	speciesName := 'Unknown'.
 	age := 0.

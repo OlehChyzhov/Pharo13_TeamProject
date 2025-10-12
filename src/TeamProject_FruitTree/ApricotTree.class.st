@@ -28,11 +28,16 @@ ApricotTree class >> initializeWith: aSpeciesName age: anAge height: aHeight yie
 
 { #category : 'methods' }
 ApricotTree >> growOneYear [
-    "Increase age and height every year"
+	"Simulate one year of growth for the apricot tree.
+
+	Increases age by 1 and height by 0.3 meters.
+	If the tree is old enough to bear fruit:
+	- reduces yield by 80% if frost occurred,
+	- otherwise increases yield by 5."
+    
     age := age + 1.
     height := height + 0.3.
 
-    "Check if tree is fruit-bearing"
     (age >= fruitBearingAge) ifTrue: [
         (hadFrost) 
             ifTrue: [ 
