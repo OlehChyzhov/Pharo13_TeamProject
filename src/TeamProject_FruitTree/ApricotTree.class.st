@@ -12,11 +12,23 @@ Class {
 	#package : 'TeamProject_FruitTree'
 }
 
+{ #category : 'magicVariables' }
+ApricotTree class >> getHeightIncrease [
+	"Height increased each year"
+	^ 0.2.
+]
+
+{ #category : 'magicVariables' }
+ApricotTree class >> getYieldIncrease [
+	"Yield increased each year"
+	^ 20.
+]
+
 { #category : 'initialization' }
 ApricotTree class >> initializeWith: aSpeciesName age: anAge height: aHeight yield: aYield bearingAge: bearingAgeValue hadFrost: hadFrostValue [
 
 	| tree |
-	tree := self new.
+	tree := self basicNew.
 	tree speciesName: aSpeciesName.
 	tree age: anAge.
 	tree height: aHeight.
@@ -27,27 +39,8 @@ ApricotTree class >> initializeWith: aSpeciesName age: anAge height: aHeight yie
 ]
 
 { #category : 'methods' }
-ApricotTree >> growOneYear [
-	"Simulate one year of growth for the apricot tree.
-
-	Increases age by 1 and height by 0.3 meters.
-	If the tree is old enough to bear fruit:
-	- reduces yield by 80% if frost occurred,
-	- otherwise increases yield by 5."
-    
-    age := age + 1.
-    height := height + 0.3.
-
-    (age >= fruitBearingAge) ifTrue: [
-        (hadFrost) 
-            ifTrue: [ 
-                "Reduce yield by 80%"
-                yield := yield * 0.2 
-            ]
-            ifFalse: [
-                yield := yield + 5
-            ].
-    ].
+ApricotTree >> getYieldForThisYear [
+	self hadFrost ifTrue: [ ^ super getYieldForThisYear * 0.2. ] ifFalse: [ ^ super getYieldForThisYear. ]
 ]
 
 { #category : 'accessing' }
@@ -58,8 +51,13 @@ ApricotTree >> hadFrost [
 
 { #category : 'accessing' }
 ApricotTree >> hadFrost: anObject [
+    "Set whether the tree experienced frost. Must be a Boolean (true or false)."
 
-	hadFrost := anObject
+    (anObject isKindOf: Boolean) ifFalse: [
+        ^self error: 'hadFrost must be a Boolean (true or false)'].
+
+    hadFrost := anObject.
+
 ]
 
 { #category : 'initialization' }

@@ -26,11 +26,23 @@ Class {
 	#package : 'TeamProject_FruitTree'
 }
 
+{ #category : 'magicVariables' }
+FruitTree class >> getHeightIncrease [
+	"Height increased each year"
+	^ 0.3.
+]
+
+{ #category : 'magicVariables' }
+FruitTree class >> getYieldIncrease [
+	"Yield increased each year"
+	^ 5.
+]
+
 { #category : 'initialization' }
 FruitTree class >> initializeWith: aSpeciesName age: anAge height: aHeight yield: aYield bearingAge: bearingAgeValue [
 	"Create and return a new FruitTree initialized with the given values."
 	| tree |
-	tree := self new.
+	tree := self basicNew.
 	tree speciesName: aSpeciesName.
 	tree age: anAge.
 	tree height: aHeight.
@@ -55,7 +67,7 @@ FruitTree >> = anotherTree [
 { #category : 'methods' }
 FruitTree >> > anotherTree [
 	"Comparing happens by tree yield"
-	^ self yield > anotherTree  yield
+	^ anotherTree < self
 ]
 
 { #category : 'accessing' }
@@ -66,6 +78,8 @@ FruitTree >> age [
 
 { #category : 'accessing' }
 FruitTree >> age: anAge [
+	(anAge isNumber and: [anAge >= 0]) ifFalse: [
+        ^self error: 'Age must be a non-negative number'].
 
 	age := anAge
 ]
@@ -78,21 +92,37 @@ FruitTree >> fruitBearingAge [
 
 { #category : 'accessing' }
 FruitTree >> fruitBearingAge: anAge [
+	(anAge isNumber and: [anAge >= 1]) ifFalse: [
+        ^self error: 'Age cannot be less than 1'].
 
 	fruitBearingAge := anAge
+]
+
+{ #category : 'methods' }
+FruitTree >> getYieldForThisYear [
+    "Return the yield for this year if the tree is old enough to bear fruit, otherwise 0."
+
+    ^ (self age > self fruitBearingAge)
+        ifTrue: [ self yield ]
+        ifFalse: [ 0 ]
+
 ]
 
 { #category : 'methods' }
 FruitTree >> growOneYear [
 	"Tree grows one year"
 	age := age + 1.
-	height := height + 0.3.
-	(age >= fruitBearingAge) ifTrue: [ yield := yield + 5 ]. "increase yield after bearing age"
+	height := height + self class getHeightIncrease.
+	yield := yield + self class getYieldIncrease.
 ]
 
 { #category : 'methods' }
 FruitTree >> growYears: aNumber [
 	"Grows for a given number of years"
+	
+	(aNumber isInteger and: [aNumber > 0]) ifFalse: [
+		^self error: 'Number of years must be a positive integer'].
+	
 	1 to: aNumber do: [ :i | self growOneYear ].
 ]
 
@@ -104,6 +134,8 @@ FruitTree >> height [
 
 { #category : 'accessing' }
 FruitTree >> height: aHeight [
+	(aHeight isNumber and: [aHeight >= 0]) ifFalse: [
+        ^self error: 'Height must be a non-negative number'].
 
 	height := aHeight
 ]
@@ -136,6 +168,8 @@ FruitTree >> speciesName [
 
 { #category : 'accessing' }
 FruitTree >> speciesName: aName [
+    (aName isString and: [aName isNotEmpty]) ifFalse: [
+        ^self error: 'Species name must be a non-empty string'].
 
 	speciesName := aName
 ]
@@ -148,6 +182,8 @@ FruitTree >> yield [
 
 { #category : 'accessing' }
 FruitTree >> yield: anYield [
+    (anYield isNumber and: [anYield >= 0]) ifFalse: [
+        ^self error: 'Yield must be a non-negative number'].
 
 	yield := anYield
 ]

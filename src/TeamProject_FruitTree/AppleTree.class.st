@@ -11,24 +11,36 @@ Class {
 	#superclass : 'FruitTree',
 	#instVars : [
 		'fruitColor',
-		'lastFruitedYear'
+		'lastYearFruited'
 	],
 	#category : 'TeamProject_FruitTree',
 	#package : 'TeamProject_FruitTree'
 }
 
+{ #category : 'magicVariables' }
+AppleTree class >> getHeightIncrease [
+	"Height increased each year"
+	^ 0.5.
+]
+
+{ #category : 'magicVariables' }
+AppleTree class >> getYieldIncrease [
+	"Yield increased each year"
+	^ 10.
+]
+
 { #category : 'initialization' }
 AppleTree class >> initializeWith: aSpeciesName age: anAge height: aHeight yield: aYield bearingAge: bearingAgeValue fruitColor: aColor [
 
 	| tree |
-	tree := self new.
+	tree := self basicNew.
 	tree speciesName: aSpeciesName.
 	tree age: anAge.
 	tree height: aHeight.
 	tree yield: aYield.
 	tree fruitBearingAge: bearingAgeValue.
 	tree fruitColor: aColor.
-	tree lastFruitedYear: 0.
+	tree lastYearFruited: false.
 	^ tree
 ]
 
@@ -40,47 +52,45 @@ AppleTree >> fruitColor [
 
 { #category : 'accessing' }
 AppleTree >> fruitColor: anObject [
+    "Set the fruit color, ensuring it is a valid non-empty string."
+
+    (anObject isString and: [anObject isNotEmpty]) ifFalse: [
+        ^self error: 'Fruit color must be a non-empty string'].
 
 	fruitColor := anObject
 ]
 
 { #category : 'methods' }
+AppleTree >> getYieldForThisYear [
+	self lastYearFruited ifTrue: [ ^ 0. ] ifFalse: [ ^ super getYieldForThisYear. ]
+]
+
+{ #category : 'methods' }
 AppleTree >> growOneYear [
-	"Simulate the growth of the apple tree over one year.
-	
-	Increases:
-	- age by 1 year
-	- height by 0.3 meters
-
-	If the tree is old enough to bear fruit and its age is even,
-	it produces additional yield (+5) and updates lastFruitedYear"
-
-    age := age + 1.
-    height := height + 0.3.
-    (self age >= self fruitBearingAge and: [(self age \\ 2) == 0]) ifTrue: [
-        yield := yield + 5.
-        lastFruitedYear := self age.
-    ].
-
+    super growOneYear.
+    self lastYearFruited: self lastYearFruited not.
 ]
 
 { #category : 'initialization' }
 AppleTree >> initialize [
 	super initialize.
 	self fruitColor: 'Undefined'.
-	self lastFruitedYear: 0.
+	self lastYearFruited: false.
 ]
 
 { #category : 'accessing' }
-AppleTree >> lastFruitedYear [
+AppleTree >> lastYearFruited [
 
-	^ lastFruitedYear
+	^ lastYearFruited
 ]
 
 { #category : 'accessing' }
-AppleTree >> lastFruitedYear: anObject [
+AppleTree >> lastYearFruited: anObject [
+    "Set whether the tree fruited last year. Must be a Boolean (true or false)."
 
-	lastFruitedYear := anObject
+    (anObject isKindOf: Boolean) ifFalse: [
+        ^self error: 'lastYearFruited must be a Boolean (true or false)'].
+	lastYearFruited := anObject
 ]
 
 { #category : 'printing' }

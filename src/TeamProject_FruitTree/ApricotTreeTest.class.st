@@ -6,25 +6,22 @@ Class {
 }
 
 { #category : 'tests' }
-ApricotTreeTest >> testGrowOneYear [
-	| tree |
-	tree := ApricotTree
-	initializeWith: 'Test Tree'
-	age: 1
-	height: 2
-	yield: 0
-	bearingAge: 2
-	hadFrost: true.
+ApricotTreeTest >> testGetYieldForThisYear [
+	|tree|
+	tree := ApricotTree initializeWith: 'Apricot' age: 0 height: 1 yield: 0 bearingAge: 1 hadFrost: false.
 	
- 	"Grow one year"
-    tree growOneYear.
+	tree growOneYear.
+	self assert: tree age equals: 1.
+   self assert: tree getYieldForThisYear equals: 0. "Bearing age is 1"
 
-    self assert: tree age = 2.
-    self assert: (tree height round: 1) = 2.3.
+	tree growOneYear.
+	self assert: tree age equals: 2.
+   self assert: tree getYieldForThisYear equals: 40. "Bearing age is 1"
 
-    "Check that yield is reduced by 80% because hadFrost = true"
-    "Since initial yield was 0, after multiplying by 0.2 it should remain 0"
-    self assert: tree yield = 0.
+	tree growOneYear; hadFrost: true.
+	self assert: tree age equals: 3.
+   self assert: tree getYieldForThisYear equals: 12. "20% of 60"
+
 ]
 
 { #category : 'tests' }

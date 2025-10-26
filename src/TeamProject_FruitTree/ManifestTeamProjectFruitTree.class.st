@@ -24,6 +24,13 @@ ManifestTeamProjectFruitTree class >> ruleAssignmentInIfTrueRuleV1FalsePositive 
 ]
 
 { #category : 'code-critics' }
+ManifestTeamProjectFruitTree class >> ruleBadMessageRule2V1FalsePositive [
+
+	<ignoreForCoverage>
+	^ #(#(#(#RGMethodDefinition #(#ApricotTree #hadFrost: #false)) #'2025-10-25T21:45:19.859+03:00') #(#(#RGPackageDefinition #(#TeamProject_FruitTree)) #'2025-10-26T07:30:26.453+02:00') )
+]
+
+{ #category : 'code-critics' }
 ManifestTeamProjectFruitTree class >> ruleClassNotReferencedRuleV1FalsePositive [
 
 	<ignoreForCoverage>
@@ -35,6 +42,13 @@ ManifestTeamProjectFruitTree class >> ruleCodeCruftLeftInMethodsRuleV1FalsePosit
 
 	<ignoreForCoverage>
 	^ #(#(#(#RGMethodDefinition #(#TreeContainer #printAll #false)) #'2025-10-12T10:01:29.39+03:00') )
+]
+
+{ #category : 'code-critics' }
+ManifestTeamProjectFruitTree class >> ruleDefinesEqualNotHashRuleV1FalsePositive [
+
+	<ignoreForCoverage>
+	^ #(#(#(#RGClassDefinition #(#FruitTree)) #'2025-10-25T20:46:50.82+03:00') )
 ]
 
 { #category : 'code-critics' }
@@ -90,7 +104,7 @@ ManifestTeamProjectFruitTree class >> ruleReAssertWithBooleanEqualtiyRuleV1False
 ManifestTeamProjectFruitTree class >> ruleReClassNotCategorizedRuleV1FalsePositive [
 
 	<ignoreForCoverage>
-	^ #(#(#(#RGClassDefinition #(#AppleTree)) #'2025-10-11T16:32:49.89+03:00') #(#(#RGClassDefinition #(#AppleTreeTest)) #'2025-10-11T16:54:29.301+03:00') #(#(#RGClassDefinition #(#ApricotTree)) #'2025-10-11T18:14:09.755+03:00') #(#(#RGClassDefinition #(#TreeContainer)) #'2025-10-12T09:51:21.678+03:00') )
+	^ #(#(#(#RGClassDefinition #(#AppleTree)) #'2025-10-11T16:32:49.89+03:00') #(#(#RGClassDefinition #(#AppleTreeTest)) #'2025-10-11T16:54:29.301+03:00') #(#(#RGClassDefinition #(#ApricotTree)) #'2025-10-11T18:14:09.755+03:00') #(#(#RGClassDefinition #(#TreeContainer)) #'2025-10-12T09:51:21.678+03:00') #(#(#RGClassDefinition #(#FruitTree)) #'2025-10-25T20:46:48.595+03:00') )
 ]
 
 { #category : 'code-critics' }
@@ -133,6 +147,13 @@ ManifestTeamProjectFruitTree class >> ruleReTestClassNotInPackageWithTestEndingN
 
 	<ignoreForCoverage>
 	^ #(#(#(#RGClassDefinition #(#AppleTreeTest)) #'2025-10-11T16:54:37.482+03:00') #(#(#RGClassDefinition #(#FruitTreeTest)) #'2025-10-12T14:55:57.21+03:00') )
+]
+
+{ #category : 'code-critics' }
+ManifestTeamProjectFruitTree class >> ruleReUndeclaredVariableRuleV1FalsePositive [
+
+	<ignoreForCoverage>
+	^ #(#(#(#RGMethodDefinition #(#AppleTree #lastFruitedYear #false)) #'2025-10-25T21:19:32.488+03:00') )
 ]
 
 { #category : 'code-critics' }

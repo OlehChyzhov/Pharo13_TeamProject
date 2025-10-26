@@ -18,6 +18,10 @@ Class {
 
 { #category : 'adding' }
 TreeContainer >> addTree: aTree [
+    "Add a tree to memory, ensuring it is a FruitTree."
+
+    (aTree isKindOf: FruitTree) ifFalse: [
+        ^self error: 'Only instances of FruitTree can be added'].
 	memory add: aTree.
 ]
 

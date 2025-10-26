@@ -8,21 +8,22 @@ Class {
 { #category : 'tests' }
 AppleTreeTest >> testGrowOneYear [
     | tree |
-    tree := AppleTree initializeWith: 'Tree' age: 1 height: 2 yield: 0 bearingAge: 2 fruitColor: 'Red'.
+    tree := AppleTree initializeWith: 'Tree' age: 0 height: 1 yield: 0 bearingAge: 1 fruitColor: 'Red'.
 
-    "Year 1 → 2 (first growth)"
     tree growOneYear.
+    self assert: tree age equals: 1.
+    self assert: tree getYieldForThisYear equals: 0. "Bearing age is 1"
+    self assert: tree lastYearFruited equals: true.
 
+    tree growOneYear.
     self assert: tree age equals: 2.
-    self assert: tree yield equals: 5.  "Fruited on even year"
-    self assert: tree lastFruitedYear equals: 2.
+    self assert: tree getYieldForThisYear equals: 20.
+    self assert: tree lastYearFruited equals: false.
 
-    "Year 2 → 3 (second growth)"
     tree growOneYear.
-
     self assert: tree age equals: 3.
-    self assert: tree yield equals: 5.  "No new yield, not even year"
-    self assert: tree lastFruitedYear equals: 2.
+    self assert: tree getYieldForThisYear equals: 0.
+    self assert: tree lastYearFruited equals: true.
 
 ]
 
@@ -31,7 +32,7 @@ AppleTreeTest >> testTreeInitialize [
 	| tree |
 	tree := AppleTree new.
 	self assert: tree fruitColor equals: 'Undefined'.
-	self assert: tree lastFruitedYear equals: 0.
+	self assert: tree lastYearFruited equals: false.
 ]
 
 { #category : 'tests' }
@@ -44,5 +45,5 @@ AppleTreeTest >> testTreeInitializeWith [
 	self assert: tree yield equals: 0.
 	self assert: tree fruitBearingAge equals: 2.
 	self assert: tree fruitColor equals: 'Red'.
-	self assert: tree lastFruitedYear equals: 0.
+	self assert: tree lastYearFruited equals: false.
 ]
