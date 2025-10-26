@@ -80,6 +80,13 @@ ManifestTeamProjectFruitTree class >> ruleInconsistentMethodClassificationRuleV1
 ]
 
 { #category : 'code-critics' }
+ManifestTeamProjectFruitTree class >> ruleLongMethodsRuleV1FalsePositive [
+
+	<ignoreForCoverage>
+	^ #(#(#(#RGPackageDefinition #(#TeamProject_FruitTree)) #'2025-10-26T11:56:05.25+02:00') )
+]
+
+{ #category : 'code-critics' }
 ManifestTeamProjectFruitTree class >> ruleMissingSuperSendsRuleV1FalsePositive [
 
 	<ignoreForCoverage>

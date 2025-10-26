@@ -154,6 +154,12 @@ TreeContainer >> initialize [
 	memory := OrderedCollection new.
 ]
 
+{ #category : 'accessing' }
+TreeContainer >> memory [
+
+	^ memory
+]
+
 { #category : 'methods' }
 TreeContainer >> mostProductiveTree [
     ^ memory detectMax: [ :tree | tree yield ].
