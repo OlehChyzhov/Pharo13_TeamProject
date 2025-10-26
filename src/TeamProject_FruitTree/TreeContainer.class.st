@@ -16,6 +16,63 @@ Class {
 	#package : 'TeamProject_FruitTree'
 }
 
+{ #category : 'programExamples' }
+TreeContainer class >> ContainerExample [
+	<script>
+	|apple apricot apricot2 treeContainer|
+	
+	treeContainer := TreeContainer new.
+	
+	apple := AppleTree initializeWith: 'apple' age: 0 height: 1 yield: 0 bearingAge: 1 fruitColor: 'Red'.
+	apricot := ApricotTree initializeWith: 'apricot' age: 0 height: 1 yield: 0 bearingAge: 1 hadFrost: false.
+	apricot2 := ApricotTree initializeWith: 'apricot' age: 1 height: 1.5 yield: 20 bearingAge: 1 hadFrost: 
+	false.
+
+	treeContainer addTree: apple; addTree: apricot; addTree: apricot2.
+	
+	treeContainer growAllNYears: 2.
+	treeContainer allReachedBearingAge. "true"
+	
+	treeContainer highestTree.  "apple | Age: 2 | Height: 2.0 | Yield: 20 | Fruit color: Red"
+	
+	treeContainer mostProductiveTree.  "apricot | Age: 2 | Height: 1.4 | Yield: 40 | Had Frost: false"
+	
+	treeContainer treesBelowHeight: 1.5.  "an OrderedCollection(apricot | Age: 2 | Height: 1.4 | Yield: 40 | 
+													  Had Frost: false)"
+	
+	treeContainer top3Productive.  "a SortedCollection(apricot | Age: 3 | Height: 1.9 | Yield: 60 | Had Frost: false apricot | Age: 2 | Height: 1.4 | Yield: 40 | Had Frost: false apple | Age: 2 | Height: 2.0 | Yield: 20 | Fruit color: Red)"
+	
+	treeContainer addTreeFromUser.
+	treeContainer printAll.
+]
+
+{ #category : 'programExamples' }
+TreeContainer class >> TreesExample [
+	<script>
+	|myApple myApricot|
+	
+	myApple := AppleTree initializeWith: 'apple' age: 0 height: 1 yield: 0 bearingAge: 1 fruitColor: 'Red'.
+	myApricot := ApricotTree initializeWith: 'apricot' age: 0 height: 1 yield: 0 bearingAge: 1 hadFrost: false.
+	myApple.  "apple | Age: 0 | Height: 1 | Yield: 0 | Fruit color: Red"
+	myApricot.  "apricot | Age: 0 | Height: 1 | Yield: 0 | Had Frost: false"
+	
+	myApple growYears: 2.
+	myApricot growYears: 2.
+	
+	myApple.  "apple | Age: 2 | Height: 2.0 | Yield: 20 | Fruit color: Red"
+	myApricot.  "apricot | Age: 2 | Height: 1.4 | Yield: 40 | Had Frost: false"
+	
+	myApple getYieldForThisYear.  "20"
+	myApricot getYieldForThisYear.  "40"
+	
+	myApple growOneYear.
+	myApricot hadFrost: true.
+	myApricot growOneYear.
+	
+	myApple getYieldForThisYear.  "0 бо плодоносить раз на 2 роки"
+	myApricot getYieldForThisYear.  "12.0 бо це 20% від 60"
+]
+
 { #category : 'adding' }
 TreeContainer >> addTree: aTree [
     "Add a tree to memory, ensuring it is a FruitTree."

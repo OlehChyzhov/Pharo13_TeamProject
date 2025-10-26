@@ -157,6 +157,13 @@ ManifestTeamProjectFruitTree class >> ruleReUndeclaredVariableRuleV1FalsePositiv
 ]
 
 { #category : 'code-critics' }
+ManifestTeamProjectFruitTree class >> ruleRefersToClassRuleV1FalsePositive [
+
+	<ignoreForCoverage>
+	^ #(#(#(#RGPackageDefinition #(#TeamProject_FruitTree)) #'2025-10-26T08:19:42.373+02:00') )
+]
+
+{ #category : 'code-critics' }
 ManifestTeamProjectFruitTree class >> ruleTempsReadBeforeWrittenRuleV1FalsePositive [
 
 	<ignoreForCoverage>
