@@ -13,7 +13,7 @@ Class {
 ManifestTeamProjectFruitTree class >> ruleAssertEqualSignIntoAssertEqualsV1FalsePositive [
 
 	<ignoreForCoverage>
-	^ #(#(#(#RGMethodDefinition #(#ApricotTreeTest #testGrowOneYear #false)) #'2025-10-11T18:29:19.585+03:00') )
+	^ #(#(#(#RGMethodDefinition #(#ApricotTreeTest #testGrowOneYear #false)) #'2025-10-11T18:29:19.585+03:00') #(#(#RGMethodDefinition #(#GardenTests #testDidTreesGetFreezeDamage #false)) #'2025-11-15T10:33:23.586+02:00') #(#(#RGMethodDefinition #(#GardenTests #testGrowNYears #false)) #'2025-11-15T10:35:22.556+02:00') #(#(#RGMethodDefinition #(#GardenTests #testTotalYield #false)) #'2025-11-15T10:41:18.117+02:00') )
 ]
 
 { #category : 'code-critics' }
@@ -28,6 +28,13 @@ ManifestTeamProjectFruitTree class >> ruleBadMessageRule2V1FalsePositive [
 
 	<ignoreForCoverage>
 	^ #(#(#(#RGMethodDefinition #(#ApricotTree #hadFrost: #false)) #'2025-10-25T21:45:19.859+03:00') #(#(#RGPackageDefinition #(#TeamProject_FruitTree)) #'2025-10-26T07:30:26.453+02:00') )
+]
+
+{ #category : 'code-critics' }
+ManifestTeamProjectFruitTree class >> ruleCascadedNextPutAllsRuleV1FalsePositive [
+
+	<ignoreForCoverage>
+	^ #(#(#(#RGMethodDefinition #(#Garden #printOn: #false)) #'2025-11-15T09:08:32.388+02:00') )
 ]
 
 { #category : 'code-critics' }
@@ -59,6 +66,13 @@ ManifestTeamProjectFruitTree class >> ruleEqualNotUsedRuleV1FalsePositive [
 ]
 
 { #category : 'code-critics' }
+ManifestTeamProjectFruitTree class >> ruleEqualsTrueRuleV1FalsePositive [
+
+	<ignoreForCoverage>
+	^ #(#(#(#RGMethodDefinition #(#GardenTests #testDidTreesGetFreezeDamage #false)) #'2025-11-15T10:33:26.731+02:00') )
+]
+
+{ #category : 'code-critics' }
 ManifestTeamProjectFruitTree class >> ruleExcessiveArgumentsRuleV1FalsePositive [
 
 	<ignoreForCoverage>
@@ -76,7 +90,7 @@ ManifestTeamProjectFruitTree class >> ruleFloatEqualityComparisonRuleV1FalsePosi
 ManifestTeamProjectFruitTree class >> ruleInconsistentMethodClassificationRuleV1FalsePositive [
 
 	<ignoreForCoverage>
-	^ #(#(#(#RGMethodDefinition #(#FruitTree #initialize #false)) #'2025-10-11T09:32:12.192+03:00') )
+	^ #(#(#(#RGMethodDefinition #(#FruitTree #initialize #false)) #'2025-10-11T09:32:12.192+03:00') #(#(#RGMethodDefinition #(#Garden #initialize #false)) #'2025-11-15T08:38:33.727+02:00') )
 ]
 
 { #category : 'code-critics' }
@@ -122,6 +136,13 @@ ManifestTeamProjectFruitTree class >> ruleReGuardClauseRuleV1FalsePositive [
 ]
 
 { #category : 'code-critics' }
+ManifestTeamProjectFruitTree class >> ruleReInstanceSideInitializeMethodProtocolRuleV1FalsePositive [
+
+	<ignoreForCoverage>
+	^ #(#(#(#RGMethodDefinition #(#Garden #initialize #false)) #'2025-11-15T08:38:29.473+02:00') )
+]
+
+{ #category : 'code-critics' }
 ManifestTeamProjectFruitTree class >> ruleReIvarNeitherReadNorWrittenRuleV1FalsePositive [
 
 	<ignoreForCoverage>
@@ -132,7 +153,7 @@ ManifestTeamProjectFruitTree class >> ruleReIvarNeitherReadNorWrittenRuleV1False
 ManifestTeamProjectFruitTree class >> ruleReShouldSendSuperInitializeAsFirstMessageV1FalsePositive [
 
 	<ignoreForCoverage>
-	^ #(#(#(#RGMethodDefinition #(#ApricotTree #initialize #false)) #'2025-10-11T18:14:35.687+03:00') )
+	^ #(#(#(#RGMethodDefinition #(#ApricotTree #initialize #false)) #'2025-10-11T18:14:35.687+03:00') #(#(#RGMethodDefinition #(#Garden #initialize #false)) #'2025-11-15T08:38:31.059+02:00') )
 ]
 
 { #category : 'code-critics' }

@@ -171,6 +171,30 @@ TreeContainer >> printAll [
 	memory do: [ :tree | Transcript show: tree printString; cr ].
 ]
 
+{ #category : 'adding' }
+TreeContainer >> removeTree: aTree [
+	(aTree isKindOf: FruitTree) ifFalse: [
+        ^self error: 'Only instances of FruitTree can be removed'].
+
+	self memory remove: aTree ifAbsent: []
+]
+
+{ #category : 'adding' }
+TreeContainer >> removeTreeWithAgeGreaterThan: anAge [
+	(anAge isNumber) ifFalse: [
+        ^self error: 'Tree age has to be of type Number'].
+
+	self memory removeAllSuchThat: [ :tree | tree age > anAge ].
+]
+
+{ #category : 'adding' }
+TreeContainer >> removeTreeWithName: aName [
+	(aName isString) ifFalse: [
+        ^self error: 'Name of the Tree has to be of type string'].
+
+	self memory removeAllSuchThat: [ :tree | tree speciesName = aName ].
+]
+
 { #category : 'methods' }
 TreeContainer >> top3Productive [
     ^ (memory asSortedCollection: [:a :b | a yield > b yield]) first: 3.
